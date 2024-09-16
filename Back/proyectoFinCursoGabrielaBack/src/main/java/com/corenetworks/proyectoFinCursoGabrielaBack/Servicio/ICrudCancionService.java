@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface ICrudCancionService {
     public Cancion alta(Cancion cancion);
-    public Cancion baja(Cancion cancion);
-    public Cancion consulta(long idCancion);
+    public void baja(Cancion cancion);
+    public Cancion consulta(int idCancion);
     public List<Cancion> listado();
     public Cancion modificar(Cancion cancion);
 }

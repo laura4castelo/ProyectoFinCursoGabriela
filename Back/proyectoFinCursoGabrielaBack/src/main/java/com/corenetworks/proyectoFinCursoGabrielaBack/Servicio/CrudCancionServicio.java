@@ -1,41 +1,46 @@
 package com.corenetworks.proyectoFinCursoGabrielaBack.Servicio;
 import com.corenetworks.proyectoFinCursoGabrielaBack.Modelo.Cancion;
 import com.corenetworks.proyectoFinCursoGabrielaBack.Repositorio.ICrudCancionRepositorio;
+import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Entity
 
 public class CrudCancionServicio implements ICrudCancionService{
+
+    @Autowired
     private ICrudCancionRepositorio iCrudCancionRepositorio;
 
     @Override
     public Cancion alta(Cancion cancion) {
-        return null;
+        return iCrudCancionRepositorio.save(cancion);
     }
 
     @Override
-    public Cancion baja(Cancion cancion) {
-        return null;
+    public void baja(Cancion cancion) {iCrudCancionRepositorio.deleteById(cancion.getIdCancion());
     }
 
     @Override
-    public Cancion consulta(long idCancion) {
-        return null;
+    public Cancion consulta(int idCancion) {
+
+       return iCrudCancionRepositorio.findById(idCancion).orElse(new Cancion());
     }
 
     @Override
     public List<Cancion> listado() {
-        return List.of();
+        return iCrudCancionRepositorio.findAll();
     }
 
     @Override
     public Cancion modificar(Cancion cancion) {
-        return null;
+        return iCrudCancionRepositorio.save(cancion);
     }
 }

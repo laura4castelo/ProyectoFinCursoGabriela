@@ -1,13 +1,9 @@
 package com.corenetworks.proyectoFinCursoGabrielaBack.Repositorio;
 
 import com.corenetworks.proyectoFinCursoGabrielaBack.Modelo.Interprete;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
 
-public interface ICrudInterpreteRepositorio {
-    public Interprete alta(Interprete interprete);
-    public Interprete baja(Interprete interprete);
-    public Interprete consulta(long idInterprete);
-    public List<Interprete> listado();
-    public Interprete modificar(Interprete interprete);
+public interface ICrudInterpreteRepositorio extends JpaRepository<Interprete, Integer> {
+
 }
