@@ -21,9 +21,9 @@ public class Genero {
     private int idGenero;
 
     @Column(length = 60, nullable = false)
-    private String tipoGenero;;
+    private String tipoGenero;
 
-    //Por si lo necesitamos
+
 //    @OneToMany(mappedBy = "genero",
 //            cascade = CascadeType.ALL,
 //            orphanRemoval = true,

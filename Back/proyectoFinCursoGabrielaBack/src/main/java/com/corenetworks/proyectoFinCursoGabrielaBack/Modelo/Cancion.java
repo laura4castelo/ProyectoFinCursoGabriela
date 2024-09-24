@@ -5,24 +5,28 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalTime;
 import java.util.Date;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+
 @Entity
 @Table(name="canciones")
 
-public class Cancion {
+public class Cancion  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCancion;
 
-    @Column(length = 60, nullable = false)
+    @Column(length = 120, nullable = false)
     private String nombre;
     @Column(nullable = false)
     private Date fechaCreacion;
+    @Column(nullable = false)
+    private LocalTime duracion;
 
     @ManyToOne
     @JoinColumn(name="id_interprete", nullable = false,

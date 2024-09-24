@@ -18,14 +18,14 @@ public class Interprete {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idInterprete;
 
-    @Column(length = 60)
+    @Column(length = 120)
     private String nombre;
     @Column(nullable = false)
     private Date fechaCreacion;
     @Column(length = 60, nullable = false)
     private String paisOrigen;
 
-    //Por si lo necesitamos
+
 //    @OneToMany(mappedBy = "interprete",
 //            cascade = CascadeType.ALL,
 //            orphanRemoval = true,

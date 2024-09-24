@@ -5,39 +5,44 @@ import com.corenetworks.proyectoFinCursoGabrielaBack.Repositorio.ICrudInterprete
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 
+@Service
 public class CrudInterpreteServicio implements ICrudInterpreteServicio {
 
+    @Autowired
     private ICrudInterpreteRepositorio iCrudInterpreteRepositorio;
 
 
     @Override
     public Interprete alta(Interprete interprete) {
-        return null;
+        return iCrudInterpreteRepositorio.save(interprete);
     }
 
     @Override
-    public Interprete baja(Interprete interprete) {
-        return null;
+    public void baja(Interprete interprete) {
+         iCrudInterpreteRepositorio.delete(interprete);
     }
 
     @Override
-    public Interprete consulta(long idInterprete) {
-        return null;
+    public Interprete consulta(int idInterprete) {
+        return iCrudInterpreteRepositorio.findById(idInterprete).orElse(new Interprete());
     }
 
     @Override
     public List<Interprete> listado() {
-        return List.of();
+        return iCrudInterpreteRepositorio.findAll();
     }
 
     @Override
     public Interprete modificar(Interprete interprete) {
-        return null;
+        return iCrudInterpreteRepositorio.save(interprete);
     }
 }

@@ -6,8 +6,9 @@ import java.util.List;
 
 public interface ICrudGeneroServicio {
     public Genero alta(Genero genero);
-    public Genero baja(Genero genero);
-    public Genero consulta(long idGenero);
+    public void baja(Genero genero);
+    public Genero consulta(int idGenero);
     public List<Genero> listado();
-    public Genero modificar(Genero Genero);
+    public Genero modificar(Genero genero);
+
 }
