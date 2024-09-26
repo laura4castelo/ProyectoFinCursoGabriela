@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,14 +29,18 @@ public class Cancion  {
     @Column(nullable = false)
     private LocalTime duracion;
 
-    @ManyToOne
-    @JoinColumn(name="id_interprete", nullable = false,
-            foreignKey = @ForeignKey(name = "FK_cancion_interprete"))
-    private Interprete interprete;
+
+    @ManyToMany
+    @JoinTable(
+            name = "cancion_interprete",
+            joinColumns = @JoinColumn(name = "id_cancion",nullable = false,foreignKey = @ForeignKey(name = "FK_temporada")),
+            inverseJoinColumns = @JoinColumn(name = "id_Interprete",nullable = false,foreignKey = @ForeignKey(name = "FK_piloto"))
+    )
+    private List<Interprete>interpretes;
 
     @ManyToOne
     @JoinColumn(name="id_genero", nullable = false,
-            foreignKey = @ForeignKey(name = "FK_cancion_genero"))
+            foreignKey = @ForeignKey(name = "FK_piloto"))
     private Genero genero;
 
 

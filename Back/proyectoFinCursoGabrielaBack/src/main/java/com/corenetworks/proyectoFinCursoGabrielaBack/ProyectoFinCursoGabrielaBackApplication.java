@@ -1,17 +1,15 @@
 package com.corenetworks.proyectoFinCursoGabrielaBack;
 
-import com.corenetworks.proyectoFinCursoGabrielaBack.Modelo.Cancion;
 import com.corenetworks.proyectoFinCursoGabrielaBack.Modelo.Genero;
 import com.corenetworks.proyectoFinCursoGabrielaBack.Modelo.Interprete;
-import com.corenetworks.proyectoFinCursoGabrielaBack.Servicio.CrudCancionServicio;
-import com.corenetworks.proyectoFinCursoGabrielaBack.Servicio.CrudGeneroServicio;
-import com.corenetworks.proyectoFinCursoGabrielaBack.Servicio.CrudInterpreteServicio;
+import com.corenetworks.proyectoFinCursoGabrielaBack.Servicio.Implementacion.Servicio_cancion;
+import com.corenetworks.proyectoFinCursoGabrielaBack.Servicio.Implementacion.Servicio_genero;
+import com.corenetworks.proyectoFinCursoGabrielaBack.Servicio.Implementacion.Servicio_Interprete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.time.LocalTime;
 import java.util.Date;
 
 @SpringBootApplication
@@ -21,11 +19,11 @@ public class ProyectoFinCursoGabrielaBackApplication implements CommandLineRunne
 		SpringApplication.run(ProyectoFinCursoGabrielaBackApplication.class, args);
 	}
 	@Autowired
-	private CrudInterpreteServicio crudInterpreteServicio;
+	private Servicio_Interprete crudInterpreteServicio;
 	@Autowired
-	private CrudGeneroServicio crudGeneroServicio;
+	private Servicio_genero crudGeneroServicio;
 	@Autowired
-	private CrudCancionServicio crudCancionServicio;
+	private Servicio_cancion crudCancionServicio;
 	@Override
 	public void run(String... args) throws Exception {
 		crudGeneroServicio.alta(new Genero(0,"rock"));
