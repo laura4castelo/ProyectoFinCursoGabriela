@@ -24,4 +24,20 @@ public class Servicio_cancion extends Servicio_impl<Cancion,Integer> implements 
     protected IRepository getRepo() {
         return iCrudCancionRepositorio;
     }
+
+    public Cancion incrementoDescarga(Cancion cancion){
+        cancion.setDescargas(cancion.getDescargas()+1);
+        iCrudCancionRepositorio.save(cancion);
+        return cancion;
+    }
+    public Cancion incrementoVenta(Cancion cancion){
+        cancion.setVentas(cancion.getVentas()+1);
+        iCrudCancionRepositorio.save(cancion);
+        return cancion;
+    }
+    public Cancion incrementoBusqueda(Cancion cancion){
+        cancion.setBusquedas(cancion.getBusquedas()+1);
+        iCrudCancionRepositorio.save(cancion);
+        return cancion;
+    }
 }

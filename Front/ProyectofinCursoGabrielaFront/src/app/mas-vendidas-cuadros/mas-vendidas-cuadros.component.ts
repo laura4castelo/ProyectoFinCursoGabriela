@@ -2,14 +2,12 @@ import { Component } from '@angular/core';
 import { CuadroCancionComponent } from '../cuadro-cancion/cuadro-cancion.component';
 
 @Component({
-  selector: 'app-novedades-cuadros',
+  selector: 'app-mas-vendidas-cuadros',
   standalone: true,
   imports: [CuadroCancionComponent],
-  templateUrl: './novedades-cuadros.component.html',
-  styleUrl: './novedades-cuadros.component.css'
+  templateUrl: './mas-vendidas-cuadros.component.html',
+  styleUrl: './mas-vendidas-cuadros.component.css'
 })
-export class NovedadesCuadrosComponent {
-
-
+export class MasVendidasCuadrosComponent {
 
 }

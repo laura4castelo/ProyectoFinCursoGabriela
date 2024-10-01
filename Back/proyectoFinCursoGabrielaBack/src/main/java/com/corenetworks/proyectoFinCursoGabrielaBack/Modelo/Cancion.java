@@ -28,7 +28,14 @@ public class Cancion  {
     private Date fechaCreacion;
     @Column(nullable = false)
     private LocalTime duracion;
-
+    @Column(nullable = false)
+    private int descargas;
+    @Column(nullable = false)
+    private int ventas;
+    @Column(nullable = false)
+    private int busquedas;
+    @Column(name = "novedades",nullable = false)
+    private boolean nueva =true;
 
     @ManyToMany(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.REMOVE})
     @JoinTable(
@@ -43,6 +50,15 @@ public class Cancion  {
             foreignKey = @ForeignKey(name = "FK_piloto"))
     private Genero genero;
 
-
-
+    public Cancion(String nombre, Date fechaCreacion, LocalTime duracion, int descargas, int ventas, int busquedas, boolean nueva, List<Interprete> interpretes, Genero genero) {
+        this.nombre = nombre;
+        this.fechaCreacion = fechaCreacion;
+        this.duracion = duracion;
+        this.descargas = descargas;
+        this.ventas = ventas;
+        this.busquedas = busquedas;
+        this.nueva = nueva;
+        this.interpretes = interpretes;
+        this.genero = genero;
+    }
 }

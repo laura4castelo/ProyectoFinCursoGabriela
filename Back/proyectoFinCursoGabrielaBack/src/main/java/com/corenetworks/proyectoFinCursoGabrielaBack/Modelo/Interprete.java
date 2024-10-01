@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -26,13 +28,14 @@ public class Interprete {
     private String paisOrigen;
 
 
-    @OneToMany(mappedBy = "interprete",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
+    @ManyToMany(mappedBy = "interpretes",
+            cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.REMOVE},
             fetch = FetchType.EAGER)
-    List<Cancion> canciones;
+    List<Cancion> canciones=new ArrayList<>();
 
-
-
-
+    public Interprete(String nombre, Date fechaCreacion, String paisOrigen) {
+        this.nombre = nombre;
+        this.fechaCreacion = fechaCreacion;
+        this.paisOrigen = paisOrigen;
+    }
 }

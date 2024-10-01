@@ -10,5 +10,5 @@ import { NovedadesCuadrosComponent } from "../novedades-cuadros/novedades-cuadro
   styleUrl: './novedades.component.css'
 })
 export class NovedadesComponent {
-
+  
 }

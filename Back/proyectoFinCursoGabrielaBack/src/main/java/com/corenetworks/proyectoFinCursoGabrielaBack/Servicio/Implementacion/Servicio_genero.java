@@ -23,6 +23,6 @@ public class Servicio_genero extends Servicio_impl<Genero,Integer> implements IS
 
     @Override
     protected IRepository getRepo() {
-        return null;
+        return iCrudGeneroRepositorio;
     }
 }

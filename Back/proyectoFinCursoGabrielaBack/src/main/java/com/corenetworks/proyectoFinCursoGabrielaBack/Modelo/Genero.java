@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -25,9 +26,12 @@ public class Genero {
 
 
     @OneToMany(mappedBy = "genero",
-            cascade = CascadeType.ALL,
+            cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.REMOVE},
             orphanRemoval = true,
             fetch = FetchType.EAGER)
-    List<Cancion> canciones;
+    List<Cancion> canciones=new ArrayList<>();
 
+    public Genero(String tipoGenero) {
+        this.tipoGenero = tipoGenero;
+    }
 }

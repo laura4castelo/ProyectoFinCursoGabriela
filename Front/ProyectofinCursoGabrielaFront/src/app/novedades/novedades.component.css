@@ -9,7 +9,19 @@
   margin: 10px;
   position: relative;
 }
+.organizacion{
+  display: flex;
+  flex-direction: row;
+  
 
+}
+.play-icon {
+
+  width: 100px;
+  height: 200px;
+  cursor: pointer;
+
+}
 
 h2{
 
@@ -31,5 +43,5 @@ div{
 .osverap{
   display: flexbox;
   flex-direction: column;
-  fle
+  
 }
