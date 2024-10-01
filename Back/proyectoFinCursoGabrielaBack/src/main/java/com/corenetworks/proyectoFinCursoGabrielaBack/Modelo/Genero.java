@@ -24,10 +24,10 @@ public class Genero {
     private String tipoGenero;
 
 
-//    @OneToMany(mappedBy = "genero",
-//            cascade = CascadeType.ALL,
-//            orphanRemoval = true,
-//            fetch = FetchType.EAGER)
-//    List<Cancion> canciones;
+    @OneToMany(mappedBy = "genero",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    List<Cancion> canciones;
 
 }

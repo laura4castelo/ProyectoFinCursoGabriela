@@ -10,6 +10,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.time.LocalTime;
 import java.util.Date;
 
 @SpringBootApplication
@@ -26,19 +27,20 @@ public class ProyectoFinCursoGabrielaBackApplication implements CommandLineRunne
 	private Servicio_cancion crudCancionServicio;
 	@Override
 	public void run(String... args) throws Exception {
-		crudGeneroServicio.alta(new Genero(0,"rock"));
-		crudGeneroServicio.alta(new Genero(0,"Pop"));
-		crudGeneroServicio.alta(new Genero(0,"Reggeton"));
-		crudInterpreteServicio.alta(new Interprete(0,"Javier",new Date(),"España"));
-		crudInterpreteServicio.alta(new Interprete(0,"Fran",new Date(),"España"));
-		crudInterpreteServicio.alta(new Interprete(0,"Fransell",new Date(),"Brasil"));
+		crudGeneroServicio.registrar(new Genero(0,"rock"));
+		crudGeneroServicio.registrar(new Genero(0,"Pop"));
+		crudGeneroServicio.registrar(new Genero(0,"Reggeton"));
+		crudInterpreteServicio.registrar(new Interprete(0,"Javier",new Date(),"España"));
+		crudInterpreteServicio.registrar(new Interprete(0,"Fran",new Date(),"España"));
+		crudInterpreteServicio.registrar(new Interprete(0,"Fransell",new Date(),"Brasil"));
 //		crudCancionServicio.alta(new Cancion(0,
 //						"Fransell",
 //						new Date(),
 //						LocalTime.now(),
 //						new Interprete(0,"Javier",new Date(),"España"),
 //						new Genero(0,"Rock")));
-		crudCancionServicio.listado().forEach(System.out::println);
+		crudCancionServicio.listar().forEach(System.out::println);
+
 
 	}
 }

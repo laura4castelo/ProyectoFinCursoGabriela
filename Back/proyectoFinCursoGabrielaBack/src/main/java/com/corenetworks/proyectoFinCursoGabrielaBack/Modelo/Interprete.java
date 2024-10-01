@@ -26,11 +26,11 @@ public class Interprete {
     private String paisOrigen;
 
 
-//    @OneToMany(mappedBy = "interprete",
-//            cascade = CascadeType.ALL,
-//            orphanRemoval = true,
-//            fetch = FetchType.EAGER)
-//    List<Cancion> canciones;
+    @OneToMany(mappedBy = "interprete",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    List<Cancion> canciones;
 
 
 

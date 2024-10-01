@@ -30,7 +30,7 @@ public class Cancion  {
     private LocalTime duracion;
 
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.REMOVE})
     @JoinTable(
             name = "cancion_interprete",
             joinColumns = @JoinColumn(name = "id_cancion",nullable = false,foreignKey = @ForeignKey(name = "FK_temporada")),
@@ -38,7 +38,7 @@ public class Cancion  {
     )
     private List<Interprete>interpretes;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.REMOVE})
     @JoinColumn(name="id_genero", nullable = false,
             foreignKey = @ForeignKey(name = "FK_piloto"))
     private Genero genero;

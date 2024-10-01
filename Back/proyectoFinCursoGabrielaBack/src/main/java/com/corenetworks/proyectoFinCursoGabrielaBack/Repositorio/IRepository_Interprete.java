@@ -7,6 +7,6 @@ import java.util.List;
 
 
 public interface IRepository_Interprete extends IRepository<Interprete, Integer> {
-    public List<Cancion> findAllBy
+    public List<Cancion> findAllByNombre(String nombre);
 
 }
