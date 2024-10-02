@@ -29,11 +29,11 @@ public class Interprete {
 
 
     @ManyToMany(mappedBy = "interpretes",
-            cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.REMOVE},
-            fetch = FetchType.EAGER)
+            cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.REMOVE})
     List<Cancion> canciones=new ArrayList<>();
 
-    public Interprete(String nombre, Date fechaCreacion, String paisOrigen) {
+    public Interprete(int idInterprete,String nombre, Date fechaCreacion, String paisOrigen) {
+        this.idInterprete=idInterprete;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.paisOrigen = paisOrigen;

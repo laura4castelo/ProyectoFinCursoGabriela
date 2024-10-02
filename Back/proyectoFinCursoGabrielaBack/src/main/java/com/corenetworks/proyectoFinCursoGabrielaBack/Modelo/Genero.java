@@ -27,11 +27,11 @@ public class Genero {
 
     @OneToMany(mappedBy = "genero",
             cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.REMOVE},
-            orphanRemoval = true,
-            fetch = FetchType.EAGER)
+            orphanRemoval = true)
     List<Cancion> canciones=new ArrayList<>();
 
-    public Genero(String tipoGenero) {
+    public Genero(int idGenero, String tipoGenero) {
+        this.idGenero=idGenero;
         this.tipoGenero = tipoGenero;
     }
 }

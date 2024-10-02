@@ -37,17 +37,16 @@ public class Cancion  {
     @Column(name = "novedades",nullable = false)
     private boolean nueva =true;
 
-    @ManyToMany(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.REMOVE})
+    @ManyToMany
     @JoinTable(
             name = "cancion_interprete",
-            joinColumns = @JoinColumn(name = "id_cancion",nullable = false,foreignKey = @ForeignKey(name = "FK_temporada")),
-            inverseJoinColumns = @JoinColumn(name = "id_Interprete",nullable = false,foreignKey = @ForeignKey(name = "FK_piloto"))
+            joinColumns = @JoinColumn(name = "id_cancion",nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "id_Interprete")
     )
     private List<Interprete>interpretes;
 
-    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.REMOVE})
-    @JoinColumn(name="id_genero", nullable = false,
-            foreignKey = @ForeignKey(name = "FK_piloto"))
+    @ManyToOne
+    @JoinColumn(name="id_genero")
     private Genero genero;
 
     public Cancion(String nombre, Date fechaCreacion, LocalTime duracion, int descargas, int ventas, int busquedas, boolean nueva, List<Interprete> interpretes, Genero genero) {
@@ -61,4 +60,5 @@ public class Cancion  {
         this.interpretes = interpretes;
         this.genero = genero;
     }
+
 }

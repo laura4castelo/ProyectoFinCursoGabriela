@@ -31,45 +31,23 @@ public class ProyectoFinCursoGabrielaBackApplication implements CommandLineRunne
 	private Servicio_cancion servicioCancion;
 	@Override
 	public void run(String... args) throws Exception {
-		altaCancion();
-
-	}
-	public void altaCancion()
-	{
-		Interprete interprete=new Interprete("Oasis",new Date(1970,5,25),"Inglaterra");
+		Genero genero=new Genero(0,"rock");
+		servicioGenero.registrar(genero);
+		Interprete interprete=new Interprete(0,"Oasis",new Date(1970,5,25),"Inglaterra");
+		servicioInterprete.registrar(interprete);
 
 		List<Interprete> interpretes=new ArrayList<>();
 		interpretes.add(interprete);
-
-		Genero genero=new Genero("rock");
-
 		Cancion cancion=new Cancion("Wonderfull"
 				, new Date(1980,4,17)
 				,LocalTime.of(0,3,56)
-				,0,0,0,true
-				,interpretes
-				,genero);
+				,0,0,0,true,interpretes,genero);
 		Cancion cancion2=new Cancion("Wonderfull2"
 				, new Date(1985,7,25)
 				,LocalTime.of(0,4,56)
-				,0,0,0,true
-				,interpretes
-				,genero);
+				,0,0,0,true,interpretes,genero);
 
-		List<Cancion>canciones=new ArrayList<>();
-		canciones.add(cancion);
-		canciones.add(cancion2);
-		genero.setCanciones(canciones);
-		interprete.setCanciones(canciones);
-
-        try {
-            servicioGenero.registrar(genero);
-			servicioInterprete.registrar(interprete);
-			servicioCancion.registrar(cancion);
-			servicioCancion.registrar(cancion2);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
+		servicioCancion.registrar(cancion);
+		servicioCancion.registrar(cancion2);
 	}
 }
