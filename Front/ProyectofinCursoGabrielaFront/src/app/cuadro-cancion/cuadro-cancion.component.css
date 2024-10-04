@@ -2,8 +2,8 @@
     width: 280px;
     height: 280px;
     border: 5px solid #270202;
-    
     flex-direction: column;
+    flex-shrink: auto;
     align-items: center;
     justify-content: center;
     margin: 10px;
