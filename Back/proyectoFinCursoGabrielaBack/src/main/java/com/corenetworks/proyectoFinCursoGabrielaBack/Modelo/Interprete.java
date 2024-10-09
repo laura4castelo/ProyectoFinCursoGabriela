@@ -38,4 +38,9 @@ public class Interprete {
         this.fechaCreacion = fechaCreacion;
         this.paisOrigen = paisOrigen;
     }
+    public Interprete(String nombre,Date fechaCreacion, String paisOrigen){
+        this.nombre=nombre;
+        this.fechaCreacion=fechaCreacion;
+        this.paisOrigen=paisOrigen;
+    }
 }

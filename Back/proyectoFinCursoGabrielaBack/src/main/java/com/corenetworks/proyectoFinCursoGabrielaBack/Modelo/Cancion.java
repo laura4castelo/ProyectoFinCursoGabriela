@@ -27,9 +27,7 @@ public class Cancion  {
     @Column(nullable = false)
     private Date fechaCreacion;
     @Column(nullable = false)
-    private LocalTime duracion;
-    @Column(nullable = false)
-    private int descargas;
+    private float duracion;
     @Column(nullable = false)
     private int ventas;
     @Column(nullable = false)
@@ -49,16 +47,19 @@ public class Cancion  {
     @JoinColumn(name="id_genero")
     private Genero genero;
 
-    public Cancion(String nombre, Date fechaCreacion, LocalTime duracion, int descargas, int ventas, int busquedas, boolean nueva, List<Interprete> interpretes, Genero genero) {
+    public Cancion(String nombre, Date fechaCreacion, float duracion, int ventas, int busquedas, boolean nueva, List<Interprete> interpretes, Genero genero) {
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.duracion = duracion;
-        this.descargas = descargas;
         this.ventas = ventas;
         this.busquedas = busquedas;
         this.nueva = nueva;
         this.interpretes = interpretes;
         this.genero = genero;
+    }
+    public Cancion(String nombre,float duracion){
+        this.nombre=nombre;
+        this.duracion=duracion;
     }
 
 }
