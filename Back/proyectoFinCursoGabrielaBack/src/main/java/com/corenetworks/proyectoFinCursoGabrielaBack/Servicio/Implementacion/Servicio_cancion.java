@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 @NoArgsConstructor
@@ -31,7 +33,7 @@ public class Servicio_cancion extends Servicio_impl<Cancion,Integer> implements 
         return cancion;
     }
     public Cancion incrementoVenta(Cancion cancion){
-        cancion.setVentas(cancion.getVentas()+1);
+        cancion.setDescargas(cancion.getDescargas()+1);
         iCrudCancionRepositorio.save(cancion);
         return cancion;
     }
@@ -39,5 +41,12 @@ public class Servicio_cancion extends Servicio_impl<Cancion,Integer> implements 
         cancion.setBusquedas(cancion.getBusquedas()+1);
         iCrudCancionRepositorio.save(cancion);
         return cancion;
+    }
+
+
+    public void borrarCancionPorNombre(String nombreCancion){
+        Cancion cancion=iCrudCancionRepositorio.findByNombre(nombreCancion);
+        iCrudCancionRepositorio.borrarCancionDeTablaOriginada(cancion.getIdCancion());
+
     }
 }

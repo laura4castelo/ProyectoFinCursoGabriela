@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IRepository_Genero extends IRepository<Genero, Integer> {
-
+ Genero findByTipoGenero(String tipoDeGenero);
 }

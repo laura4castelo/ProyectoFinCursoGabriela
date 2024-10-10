@@ -40,14 +40,16 @@ public class ProyectoFinCursoGabrielaBackApplication implements CommandLineRunne
 		interpretes.add(interprete);
 		Cancion cancion=new Cancion("Wonderfull"
 				, new Date(1980,4,17)
-				,LocalTime.of(0,3,56)
-				,0,0,0,true,interpretes,genero);
+				,3.56f
+				,0,0,interpretes,genero);
 		Cancion cancion2=new Cancion("Wonderfull2"
 				, new Date(1985,7,25)
-				,LocalTime.of(0,4,56)
-				,0,0,0,true,interpretes,genero);
+				,3.67f
+				,0,0,interpretes,genero);
 
 		servicioCancion.registrar(cancion);
 		servicioCancion.registrar(cancion2);
+
+		servicioCancion.borrarCancionPorNombre("Wonderfull2");
 	}
 }

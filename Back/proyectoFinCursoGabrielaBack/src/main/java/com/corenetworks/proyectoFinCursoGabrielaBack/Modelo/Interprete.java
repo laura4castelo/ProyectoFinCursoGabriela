@@ -20,11 +20,11 @@ public class Interprete {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idInterprete;
 
-    @Column(length = 120)
+    @Column(nullable = false, length = 120)
     private String nombre;
-    @Column(nullable = false)
+    @Column
     private Date fechaCreacion;
-    @Column(length = 60, nullable = false)
+    @Column(length = 60)
     private String paisOrigen;
 
 

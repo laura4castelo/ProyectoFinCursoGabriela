@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
@@ -24,16 +23,15 @@ public class Cancion  {
 
     @Column(length = 120, nullable = false)
     private String nombre;
-    @Column(nullable = false)
+    @Column
     private Date fechaCreacion;
     @Column(nullable = false)
     private float duracion;
-    @Column(nullable = false)
-    private int ventas;
-    @Column(nullable = false)
-    private int busquedas;
-    @Column(name = "novedades",nullable = false)
-    private boolean nueva =true;
+    @Column
+    private long descargas=0;
+    @Column
+    private long busquedas=0;
+
 
     @ManyToMany
     @JoinTable(
@@ -47,13 +45,12 @@ public class Cancion  {
     @JoinColumn(name="id_genero")
     private Genero genero;
 
-    public Cancion(String nombre, Date fechaCreacion, float duracion, int ventas, int busquedas, boolean nueva, List<Interprete> interpretes, Genero genero) {
+    public Cancion(String nombre, Date fechaCreacion, float duracion, int ventas, int busquedas, List<Interprete> interpretes, Genero genero) {
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.duracion = duracion;
-        this.ventas = ventas;
+        this.descargas = ventas;
         this.busquedas = busquedas;
-        this.nueva = nueva;
         this.interpretes = interpretes;
         this.genero = genero;
     }
