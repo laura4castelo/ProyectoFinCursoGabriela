@@ -1,11 +1,7 @@
 package com.corenetworks.proyectoFinCursoGabrielaBack.Servicio.Implementacion;
 
 import com.corenetworks.proyectoFinCursoGabrielaBack.Repositorio.IRepository;
-import com.corenetworks.proyectoFinCursoGabrielaBack.Repositorio.IRepositoryInterprete;
 import com.corenetworks.proyectoFinCursoGabrielaBack.Servicio.IServicio;
-import jakarta.persistence.EntityManager;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -13,11 +9,6 @@ public abstract class ServicioImpl<T,ID> implements IServicio<T,ID> {
 
 
     protected abstract IRepository<T, ID> getRepo();
-    @Autowired
-    private EntityManager entityManager;
-
-    @Autowired
-    private IRepositoryInterprete iRepositoryInterprete;
 
     public T registrar(T t) throws Exception{
         // TODO Auto-generated method stub

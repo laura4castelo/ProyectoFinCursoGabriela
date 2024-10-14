@@ -12,20 +12,16 @@ import org.springframework.stereotype.Service;
 public class ServicioInterprete extends ServicioImpl<Interprete,Integer> implements IServicioInterprete {
 
     @Autowired
-    private IRepositoryInterprete iRepositoryInterprete(){
-        return iRepositoryInterprete();
-    }
+    private IRepositoryInterprete iRepositoryInterprete;
+
 
     @Override
     protected IRepository<Interprete, Integer> getRepo() {
-        return iRepositoryInterprete();
+        return iRepositoryInterprete;
     }
 
-
     @Override
-    public Interprete findByNombre(String nombre) {
-        Interprete interprete=iRepositoryInterprete().findByNombre(nombre);
-        if (interprete==null){return null;}
-        else {return interprete;}
+    public Interprete buscaPorNombre(String nombre) {
+        return iRepositoryInterprete.findByNombre(nombre);
     }
 }
