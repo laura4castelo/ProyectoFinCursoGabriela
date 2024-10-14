@@ -5,6 +5,7 @@ import { GenerosComponent } from './generos/generos.component';
 import { CabeceroComponent } from './cabecero/cabecero.component';
 import { PiePaginaComponent } from './pie-pagina/pie-pagina.component';
 import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
+import { MasNuevasComponent } from './mas-nuevas/mas-nuevas.component';
 
 export const routes: Routes = [
 
@@ -23,12 +24,16 @@ export const routes: Routes = [
     {
         "path": '', component: PiePaginaComponent
     },
+    
+    {"path":'',component:MasNuevasComponent}, 
+
     {
         "path":"",redirectTo: "canciones", pathMatch: "full"
     },
     {
         "path":"**", "component": PaginaErrorComponent
-    }  
+    } 
+    
 
 
 
