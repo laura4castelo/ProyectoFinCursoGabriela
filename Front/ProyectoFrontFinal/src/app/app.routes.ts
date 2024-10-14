@@ -24,9 +24,9 @@ export const routes: Routes = [
     {
         "path": '', component: PiePaginaComponent
     },
-    
-    {"path":'',component:MasNuevasComponent}, 
-
+    {
+        "path":'', component:MasNuevasComponent
+    }, 
     {
         "path":"",redirectTo: "canciones", pathMatch: "full"
     },
